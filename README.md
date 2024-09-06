@@ -1,29 +1,27 @@
-# Huffman Coding Compression Algorithm
+# Shannon-Fano Compression Algorithm
 
 ## Overview
 
-This C++ program implements the Huffman coding algorithm for data compression. Huffman coding is an entropy encoding algorithm that assigns variable-length codes to input characters based on their frequencies. This technique is used to achieve efficient data compression.
+This C++ program implements the Shannon-Fano algorithm for data compression. Shannon-Fano coding is an entropy encoding algorithm that assigns variable-length codes to input characters based on their frequencies. This technique achieves efficient data compression by encoding characters with shorter codes if they occur more frequently.
 
 ## Theory
 
-The Huffman coding algorithm is used for lossless data compression. The process includes:
+The Shannon-Fano algorithm is used for lossless data compression. The process includes:
 
-1. **Calculate Frequencies**: Determine the frequency of each character in the input data.
-2. **Create Nodes**: Generate a node for each character with its frequency.
-3. **Build Huffman Tree**: Construct a binary tree where each node represents a character or an internal node with combined frequencies. Nodes with lower frequencies are merged first.
-4. **Generate Codes**: Traverse the Huffman tree to assign binary codes to each character. Characters that occur more frequently are assigned shorter codes.
-5. **Compress Data**: Encode the input data using the generated Huffman codes.
-6. **Generate Output**: Save the compressed data and encoding dictionary to separate files.
+1. **Calculate Probabilities**: Determine the frequency of each character in the input data and compute their probabilities.
+2. **Sort Characters**: Arrange characters by their probabilities in descending order.
+3. **Split and Encode**: Recursively divide the list of characters into two parts, assigning '0' to one part and '1' to the other. Continue this process for each subset until all characters receive a unique binary code.
+4. **Generate Output**: Save the compressed data and encoding dictionary to separate files.
 
 ## Code Explanation
 
 ### `struct Node`
 
-- **Purpose**: Defines the structure for each node in the Huffman tree.
+- **Purpose**: Defines the structure for each node in the Shannon-Fano coding process.
 - **Members**:
-  - `char character`: The character represented by the node (for leaf nodes).
+  - `char character`: The character represented by the node.
   - `double probability`: The probability of the character occurring in the input data.
-  - `string code`: The Huffman code assigned to the character.
+  - `string code`: The Shannon-Fano code assigned to the character.
   - `Node* left`, `Node* right`: Pointers to the left and right children of the node.
 
 ### `struct CompareNode`
@@ -65,4 +63,4 @@ The Huffman coding algorithm is used for lossless data compression. The process 
 
 1. **Compile the Program**:
    ```bash
-   g++ -o huffman huffman.cpp
+   g++ -o shannon_fano shannon_fano.cpp
