@@ -1,0 +1,9 @@
+Symbol - H :: Code - 000
+Symbol -   :: Code - 1110
+Symbol - i :: Code - 1111
+Symbol - w :: Code - 001
+Symbol - o :: Code - 110
+Symbol - r :: Code - 101
+Symbol - l :: Code - 100
+Symbol - d :: Code - 010
+Symbol - ! :: Code - 011
